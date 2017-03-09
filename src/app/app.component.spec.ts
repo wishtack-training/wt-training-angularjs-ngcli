@@ -1,32 +1,35 @@
-import { TestBed, async } from '@angular/core/testing';
 
-import { AppComponent } from './app.component';
+import * as angular from 'angular';
+import { appModule } from './app.module';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+    let $compile;
+    let $rootScope;
+    let $scope;
 
-  it(`should have as title 'app works!'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
-  }));
+    beforeEach(angular.mock.module(appModule.name));
 
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
-  }));
+    beforeEach(angular.mock.inject((
+        _$compile_,
+        _$rootScope_
+    ) => {
+        $compile = _$compile_;
+        $rootScope = _$rootScope_;
+    }));
+
+    beforeEach(() => {
+        $scope = $rootScope.$new();
+    });
+
+    it('should say hi', () => {
+
+        const element = $compile('<wt-app>')($scope)[0];
+
+        $scope.$digest();
+
+        expect(element.textContent.trim()).toEqual(`Let's NG!`);
+
+    });
+
 });
