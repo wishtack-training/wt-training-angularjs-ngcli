@@ -1,0 +1,25 @@
+<form
+        layout="column"
+        layout-gt-xs="row"
+        layout-align="space-between center"
+        ng-submit="$ctrl.saveUser()">
+
+    <md-input-container flex>
+        <label>First Name</label>
+        <input
+                ng-model="$ctrl.user.firstName"
+                type="text">
+    </md-input-container>
+
+    <md-input-container flex>
+        <label>Last Name</label>
+        <input
+                ng-model="$ctrl.user.lastName"
+                type="text">
+    </md-input-container>
+
+    <md-button
+            class="md-primary md-raised"
+            type="SUBMIT">{{ $ctrl.buttonText }}</md-button>
+
+</form>

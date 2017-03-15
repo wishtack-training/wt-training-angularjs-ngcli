@@ -1,0 +1,43 @@
+$invalid-color: red;
+
+// @todo: User bourbon mixins.
+
+wt-user-list {
+
+    button {
+        border-radius: 5px;
+    }
+
+    li {
+        transition: 0.5s linear all;
+    }
+
+    li.wt-invalid {
+        background-color: $invalid-color;
+    }
+
+    li.ng-enter {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+
+    li.ng-enter.ng-enter-active {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+
+    li.ng-leave {
+        opacity: 1;
+    }
+
+    li.ng-leave.ng-leave-active {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    span {
+        font-style: italic;
+    }
+
+}

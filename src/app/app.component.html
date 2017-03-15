@@ -1,2 +1,28 @@
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
 
-<h1>{{$ctrl.title}}</h1>
+        <h2 flex md-truncate>Wishtack's Ng1 Demo</h2>
+
+
+    </div>
+</md-toolbar>
+
+<md-content
+        class="hero-transition"
+        flex
+        ui-view></md-content>
+
+<footer
+    show-gt-xs
+    hide>
+    <a
+            ng-hide="$ctrl.currentStateIncludes('landing')"
+            ui-sref="landing">LANDING</a>
+    <a
+            ng-hide="$ctrl.currentStateIncludes('userList')"
+            ui-sref="userList">USER LIST</a>
+    <a
+            href="http://blog.wishtack.com"
+            target="_blank">blog.wishtack.com</a>
+</footer>
+

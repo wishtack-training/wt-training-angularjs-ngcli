@@ -1,0 +1,30 @@
+<wt-loading is-ready="$ctrl.userList != null">
+    <section>
+
+        <header ng-transclude="header"></header>
+
+        <ul layout="column">
+
+            <li
+                    layout="row"
+                    layout-align="space-between"
+                    ng-repeat="user in $ctrl.userList"
+                    ng-class="{'wt-invalid': user.firstName.length <= 3}">
+                <a
+                        flex
+                        ui-sref="userDetail({userId: user.id})">
+                    <span>{{ ::user.firstName }}</span>
+                    <span>{{ ::user.lastName }}</span>
+                </a>
+                <md-button
+                        class="md-primary"
+                        ng-click="$ctrl.removeUser(user)"
+                        type="button">REMOVE</md-button>
+            </li>
+
+        </ul>
+
+        <footer ng-transclude="footer"></footer>
+
+    </section>
+</wt-loading>

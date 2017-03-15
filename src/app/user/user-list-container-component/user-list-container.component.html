@@ -1,0 +1,18 @@
+<wt-loading is-ready="!$ctrl.isSaving">
+    <wt-user-form
+            ng-show="!$ctrl.isSaving"
+            on-user-change="$ctrl.addUser(user)"></wt-user-form>
+</wt-loading>
+
+<wt-user-list
+        on-user-remove="$ctrl.removeUser(user)"
+        user-list="$ctrl.userList">
+
+    <wt-header>
+        <h1>This is my user list</h1>
+        <p>welcome...</p>
+    </wt-header>
+
+    <wt-footer class="wt-footer">BYE!</wt-footer>
+
+</wt-user-list>

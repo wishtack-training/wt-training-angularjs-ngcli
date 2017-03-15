@@ -1,4 +1,3 @@
-
 export class AppComponent {
 
     static CONFIG = {
@@ -6,6 +5,11 @@ export class AppComponent {
         template: require('./app.component.html')
     };
 
-    title = 'Let\'s NG!';
+    constructor(private $state) {
+    }
+
+    currentStateIncludes(stateName) {
+        return this.$state.includes(stateName);
+    }
 
 }
