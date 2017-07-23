@@ -2,7 +2,7 @@
 
 ## Setup
 
-1- Downloading custom Angular CLI that handles AngularJS apps.
+### 1 - Downloading custom Angular CLI that handles AngularJS apps.
 
 ```shell
 cd ..
@@ -13,7 +13,13 @@ yarn link
 cd ../wt-training-angularjs-ngcli
 ```
 
-2- Use custom Angular CLI and install dependencies.
+### 2 - Checkout the boilerplate branch.
+
+```shell
+git checkout 0-boilerplate
+```
+
+### 3 - Use custom Angular CLI and install dependencies.
 
 ```shell
 yarn install
