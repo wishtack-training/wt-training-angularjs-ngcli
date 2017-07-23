@@ -9,6 +9,6 @@ describe('wt-training-angularjs-ngcli App', () => {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText() as any as string).toEqual('app works!');
   });
 });
