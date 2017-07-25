@@ -9,19 +9,28 @@
 import * as angular from 'angular';
 
 export const dragAndDropModule = angular.module('dragAndDrop', []);
-
-const createEventDirective = (eventName) => ($parse) => (scope, element, attrs) => {
+[
+    'dragend',
+    'dragenter',
+    'dragexit',
+    'dragover',
+    'dragstart',
+    'drop'
+].forEach((eventName) => {
 
     const attributeName = `ng${eventName.charAt(0).toUpperCase()}${eventName.slice(1)}`;
-    const fn = $parse(attrs[attributeName]);
 
-    element.on(
-        eventName,
-        (event) => scope.$apply(() => fn(scope, {$event: event}))
-    );
+    dragAndDropModule.directive(
+        attributeName,
+        ($parse) => (scope, element, attrs) => {
 
-};
+            const fn = $parse(attrs[attributeName]);
 
-dragAndDropModule.directive('ngDragstart', createEventDirective('dragstart'));
-dragAndDropModule.directive('ngDragover', createEventDirective('dragover'));
-dragAndDropModule.directive('ngDrop', createEventDirective('drop'));
+            element.on(
+                eventName,
+                (event) => scope.$apply(() => fn(scope, {$event: event}))
+            );
+
+        });
+
+});
