@@ -1,0 +1,14 @@
+ul {
+    background-color: aquamarine;
+    padding: 10px;
+}
+
+li {
+    background-color: coral;
+    border-style: solid;
+    border-width: 1px;
+}
+
+span {
+    background-color: cornflowerblue;
+}
